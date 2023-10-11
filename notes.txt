@@ -1,0 +1,22 @@
+Little Buckets
+
+Basic Functionality:
+An application that allows parents to create lists of things they want to remember to do with their little ones.
+
+Allow a registration for users.
+
+Create collection for places to visit.
+
+Create collection for events to take them to.
+
+Create collection for movies to show them.
+
+
+
+Advanced Functionality:
+Allow profile personalization so you can get reminders about when its the childs birthday so you know what you 
+want to introduce to them that year. 
+
+
+
+
