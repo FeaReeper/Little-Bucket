@@ -50,7 +50,6 @@ const LogIn = () => {
           </div>
           <div>
             <button className="btn btn-primary mt-3 mx-3">Login</button>
-            <Link className='mx-3' to={'/register'}>Register</Link>
           </div>
         </form>
       </div>

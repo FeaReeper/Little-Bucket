@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const Register = () => {
   const [confirmError, setConfirmError] = useState('')
@@ -49,6 +49,7 @@ const Register = () => {
   return (
     <div className="text-center w-50 mx-auto p-3 ">
       <h2>Register</h2>
+      <Link to={"/"}>Home</Link>
       <div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
