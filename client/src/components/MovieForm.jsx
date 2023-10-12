@@ -2,7 +2,9 @@ import React from 'react'
 
 const MovieForm = () => {
   return (
-    <div>MovieForm</div>
+    <div>
+      
+    </div>
   )
 }
 

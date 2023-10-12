@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 
 const LogIn = () => {
   const {userId} = useParams()
@@ -46,6 +47,10 @@ const LogIn = () => {
           <div className="form-group mt-3 ">
             <label htmlFor="password">Password:</label>
             <input className="form-control" type="password" id='password' onChange={handleChange} />
+          </div>
+          <div>
+            <button className="btn btn-primary mt-3 mx-3">Login</button>
+            <Link className='mx-3' to={'/register'}>Register</Link>
           </div>
         </form>
       </div>
