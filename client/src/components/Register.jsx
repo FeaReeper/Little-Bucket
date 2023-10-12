@@ -11,7 +11,9 @@ const Register = () => {
     lastName: "",
     email: "",
     password: "",
+    confirmPassword: ""
   });
+  const [id, setId] = useState()
   
   const handleChange = (e) => {
     setUser({
@@ -34,10 +36,11 @@ const Register = () => {
     e.preventDefault();
     
     axios
-      .post("http://localhost:8000/api/newUser", user)
+      .post("http://localhost:8000/api/newUser", user, payload, {withCredentials: true})
       .then((res) => {
         console.log(res.data);
-        navigate(`/dashboard/${userId}`);
+        setId(res.data._id)
+        navigate(`/dashboard/${id}`);
       })
       .catch((err) => {
         console.log(err);
@@ -48,9 +51,9 @@ const Register = () => {
 
   return (
     <div className="text-center w-50 mx-auto p-3 ">
-      <h2>Register</h2>
       <Link to={"/"}>Home</Link>
-      <div>
+      <h2 className="mt-5">Register</h2>
+      <div className="mt-3">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="firstName">First Name:</label>
@@ -99,6 +102,7 @@ const Register = () => {
               type="password"
               id="confirmPassword"
               name="confirmPassword"
+              onChange={handleChange}
             />
           </div>
           <button className="btn btn-primary mt-3">Create</button>

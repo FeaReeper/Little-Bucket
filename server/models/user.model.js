@@ -17,31 +17,37 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, "Password can not be blank"]
+        required: [true, "Password can not be blank"],
+        minlength: [7, "Password must be at least 7 characters"]
+    },
+    movies: {
+        type: Array
     }
 }, {timestamps: true})
 
-// UserSchema.virtual('confirmPassword')
-// .get(() => this._confirmPassword)
-// .set((value) => this._confirmPassword = value)
 
-// UserSchema.pre('validate', function(next) {
-//     if (this.password !== this.confirmPassword) {
-//         this.invalidate('confirmPassword', 'Password must match confirm password');
-//     }
-//     next();
-// });
+// This is how we validate that the password matches the confirmPassword
+UserSchema.virtual('confirmPassword')
+.get(() => this.confirmPassword)
+.set((value) => this.confirmPassword = value)
 
-// // near the top is a good place to group our imports
-// const bcrypt = require('bcrypt');
-// // this should go after 
-// UserSchema.pre('save', function(next) {
-//     bcrypt.hash(this.password, 10)
-//         .then(hash => {
-//             this.password = hash;
-//             next();
-//         });
-// });
+UserSchema.pre('validate', function(next) {
+    if (this.password !== this.confirmPassword) {
+        this.invalidate('confirmPassword', 'Password must match confirm password');
+    }
+    next();
+});
+
+
+
+// this should go after, this is how we hash the password
+UserSchema.pre('save', function(next) {
+    bcrypt.hash(this.password, 10)
+        .then(hash => {
+            this.password = hash;
+            next();
+        });
+});
 
 
 
