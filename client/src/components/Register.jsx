@@ -13,7 +13,6 @@ const Register = () => {
     password: "",
     confirmPassword: ""
   });
-  const [id, setId] = useState()
   
   const handleChange = (e) => {
     setUser({
@@ -22,25 +21,16 @@ const Register = () => {
     });
   };
   
-  // const handleConfirmPassword = (e) => {
-  //   if(e.target.value !== user.password) {
-  //     setConfirmError('Passwords must match!')
-  //     return false
-  //   }
-  //   else {
-  //     return true
-  //   }
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     axios
-      .post("http://localhost:8000/api/newUser", user, payload, {withCredentials: true})
+      .post("http://localhost:8000/api/newUser", user, {withCredentials: true})
       .then((res) => {
         console.log(res.data);
-        setId(res.data._id)
-        navigate(`/dashboard/${id}`);
+
+        navigate(`/dashboard`);
       })
       .catch((err) => {
         console.log(err);
@@ -62,6 +52,7 @@ const Register = () => {
               type="text"
               id="firstName"
               name="firstName"
+              value={user.firstName}
               onChange={handleChange}
             />
           </div>
@@ -72,6 +63,7 @@ const Register = () => {
               type="text"
               id="lastName"
               name="lastName"
+              value={user.lastName}
               onChange={handleChange}
             />
           </div>
@@ -82,6 +74,7 @@ const Register = () => {
               type="text"
               id="email"
               name="email"
+              value={user.email}
               onChange={handleChange}
             />
           </div>
@@ -92,6 +85,7 @@ const Register = () => {
               type="password"
               id="password"
               name="password"
+              value={user.password}
               onChange={handleChange}
             />
           </div>
@@ -102,6 +96,7 @@ const Register = () => {
               type="password"
               id="confirmPassword"
               name="confirmPassword"
+              value={user.confirmPassword}
               onChange={handleChange}
             />
           </div>

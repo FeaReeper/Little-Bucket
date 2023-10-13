@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors")
+const cookieParser = require('cookie-parser')
+
 require("dotenv").config()
 require("./config/mongoose.config");
     
 app.use(express.json(), express.urlencoded({ extended: true }));
-app.use(cors())
-    
+app.use(cors({withCredentials:true}))
 const AllUserRoutes = require("./routes/user.routes");
 AllUserRoutes(app);
 

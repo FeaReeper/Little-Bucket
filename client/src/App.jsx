@@ -19,8 +19,8 @@ function App() {
         <Route index element={<Home/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/logIn' element={<LogIn/>}/>
-        <Route path='/dashboard/:id' element={<Dashboard/>}/>
-        <Route path='/dashboard/:id/movies' element={<DisplayList movies={movies} setMovies={setMovies}/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/dashboard/movies' element={<DisplayList movies={movies} setMovies={setMovies}/>}/>
       </Routes>
     </BrowserRouter>
     </div>

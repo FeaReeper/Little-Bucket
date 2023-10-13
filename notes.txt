@@ -18,7 +18,9 @@ Allow profile personalization so you can get reminders about when its the childs
 want to introduce to them that year. 
 
 
-Testing to see if this updates the github repo
+Places I am stuck:
+    How to direct to users dashboard after register and log in
+    How to use references for movies collection to users.movies array with movie._id? Look at MongoDB documentation
 
 
 

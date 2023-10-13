@@ -10,16 +10,16 @@ const LogIn = () => {
     password: "",
   });
 
-  useEffect(() => {
-    axios
-      .get('http://localhost:8000/api/allUsers')
-      .then((res) => {
+  // useEffect(() => {
+  //   axios
+  //     .get('http://localhost:8000/api/allUsers')
+  //     .then((res) => {
 
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }, [])
   
   const handleChange = (e) => {
     setUser({
@@ -31,7 +31,18 @@ const LogIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    axios.post('http://localhost:8000/api/login', payload, {withCredentials: true})
+    axios
+      .post('http://localhost:8000/api/login', user, {withCredentials: true})
+      .then((res) => {
+        console.log(res.data);
+        setId(res.data._id)
+        navigate(`/dashboard/${id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+        // create an err message for validations. This grabs the error message in the model
+        // setError(err.response.data.error.errors)
+      });
 
 
   }
@@ -41,7 +52,7 @@ const LogIn = () => {
     <div className='text-center w-50 mx-auto p-3 '>
       <h2>Log-In</h2>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
         <div className="form-group mt-3 ">
             <label htmlFor="email">Email:</label>
             <input className="form-control" type="text" id='email' onChange={handleChange} />
