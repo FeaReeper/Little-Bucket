@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const LogIn = () => {
-  const {userId} = useParams()
   const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-
-  // useEffect(() => {
-  //   axios
-  //     .get('http://localhost:8000/api/allUsers')
-  //     .then((res) => {
-
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [])
   
   const handleChange = (e) => {
     setUser({
@@ -32,11 +20,10 @@ const LogIn = () => {
     e.preventDefault()
 
     axios
-      .post('http://localhost:8000/api/login', user, {withCredentials: true})
+      .post('http://localhost:8000/api/loginUser', user, {withCredentials: true})
       .then((res) => {
         console.log(res.data);
-        setId(res.data._id)
-        navigate(`/dashboard/${id}`);
+        navigate(`/dashboard`);
       })
       .catch((err) => {
         console.log(err);
@@ -55,11 +42,11 @@ const LogIn = () => {
         <form onSubmit={handleSubmit}>
         <div className="form-group mt-3 ">
             <label htmlFor="email">Email:</label>
-            <input className="form-control" type="text" id='email' onChange={handleChange} />
+            <input className="form-control" type="text" id='email' name='email' onChange={handleChange} />
           </div>
           <div className="form-group mt-3 ">
             <label htmlFor="password">Password:</label>
-            <input className="form-control" type="password" id='password' onChange={handleChange} />
+            <input className="form-control" type="password" id='password' name='password' onChange={handleChange} />
           </div>
           <div>
             <button className="btn btn-primary mt-3 mx-3">Login</button>
