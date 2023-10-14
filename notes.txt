@@ -19,8 +19,6 @@ want to introduce to them that year.
 
 
 Places I am stuck:
-    How to direct to users dashboard after register and log in
-    How to use references for movies collection to users.movies array with movie._id? Look at MongoDB documentation
-
+    creating my controller to add a movie id to movies array in user model
 
 
