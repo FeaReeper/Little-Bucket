@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
 const MovieForm = (props) => {
   const {userId, setUserId} = props
@@ -49,6 +51,7 @@ console.log(userId)
 
   return (
     <div>
+      <Link to={'/dashboard'}>Home</Link>
       <h1>Add a Movie or TV Show</h1>
       <div>
         <form onSubmit={handleSubmit}>

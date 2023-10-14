@@ -41,7 +41,7 @@ const DisplayList = (props) => {
                   <p>Age to Show: {movie.age}</p>
                   <p>Notes: {movie.notes}</p>
                 </div>
-                <Link to={`/movie/${movie._id}`}>View</Link>
+                <Link to={`/movie/${movie._id}`}>Edit</Link>
               </div>
             )
           })
