@@ -7,14 +7,16 @@ import Slogan from '../assets/Slogan.png'
 import LogIn from './LogIn'
 import { Link } from 'react-router-dom'
 
-const Home = (props) => {
-  const {userId, setUserId} = props
+
+
+const Home = () => {
+
 
   return (
     <div>
       <Link className='mx-3' to={'/register'}>Register</Link>
       <div>
-        <LogIn userId={userId} setUserId={setUserId}/>
+        <LogIn/>
       </div>
       <div>
         <img src={Slogan} alt="slogan" style={{width: '600px'}}/>

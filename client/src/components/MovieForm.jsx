@@ -1,11 +1,15 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Nav from "./Nav";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { UserIdContext } from '../App'
 
-const MovieForm = (props) => {
-  const {userId, setUserId} = props
-console.log(userId)
+
+const MovieForm = () => {
+  const [userId, setUserId] = useContext(UserIdContext)
+
+
+
   const [movie, setMovie] = useState({
     title: '',
     filmType: '',
@@ -13,10 +17,11 @@ console.log(userId)
     age: '',
     notes: ''
   })
+
   const [user, setUser] = useState({
-    _id: userId,
-    movies: []
+    movies: ''
   })
+
 
 
   const handleChange = (e) => {
@@ -31,18 +36,20 @@ console.log(userId)
       .post('http://localhost:8000/api/newMovie', movie)
       .then((res) => {
         console.log(res)
-        setUser(res.data.movie._id)
-      .catch((err) => {
-        console.log(err)
-      })
+        setUser({
+          movies: res.data._id
+        })
         axios
-          .patch('http://localhost:8000/api/addMovieId', user)
-          .then((res) => {
-            console.log(res)
+          .patch(`http://localhost:8000/api/addMovieId/${userId}`, user)
+          .then((res2) => {
+            console.log(res2)
           })
           .catch((err) => {
             console.log(err)
           })
+      })
+      .catch((err) => {
+        console.log(err)
       })
   }
 
@@ -68,9 +75,9 @@ console.log(userId)
           </div>
           <div className="form-group mt-3">
             <label htmlFor="filmType">Movie or TV Show:</label>
-            <select className="form-control" name="filmType" id="filmType" onChange={handleChange} value={movie.filmType}>
-              <option value="movie">Movie</option>
-              <option value="tvShow">TV Show</option>
+            <select className="form-control" name="filmType" id="filmType" onChange={handleChange} defaultValue='Movie'>
+              <option value="Movie">Movie</option>
+              <option value="TV Show">TV Show</option>
             </select>
           </div>
           <div className="form-group mt-3">

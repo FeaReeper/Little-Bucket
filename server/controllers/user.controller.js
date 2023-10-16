@@ -52,9 +52,42 @@ module.exports = {
         res.sendStatus(200)
     },
 
-    addMovie: (req, res) => {
-        User.findOneAndUpdate({_id: req.body._id}, {movies: req.body.movies})
+    addMovie: async (req, res) => {
+        const query = {_id: req.params.userId}
+        const update = {
+            $push: {
+                movies: req.body.user.movies
+            }
+        }
+        try {
+            const user = await User.updateOne(query, update)
+            if (user.modifiedCount == 1) {
+                res.json({ message: 'Data added to the array' })
+            } else {
+                res.status(404).json({ message: 'Document not found' })
+            }
+        }
+        catch(err){
+            res.status(400).json({error: err})
+        }
     },
+
+
+    // addMovie: (req, res) => {
+    //     const query = {_id: req.params.userId}
+    //     const update = {
+    //         $push: {
+    //             movies: req.body.user.movies
+    //         }
+    //     }
+    //     User.updateOne(query, update, {new: true, runValidators: true})
+    //     .then((user) => {
+    //         res.status(200).json(user)
+    //     })
+    //     .catch((err) => {
+    //         res.status(500).json({message: 'Error in controllers for update users movie collection', error: err})
+    //     })
+    // },
 
 
 

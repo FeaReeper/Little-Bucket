@@ -1,12 +1,11 @@
-import React, { useContext, useState } from 'react'
+import { React, useContext, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
-// import { Context } from '../App'
+import { UserIdContext } from '../App'
 
-const LogIn = (props) => {
+const LogIn = () => {
   const navigate = useNavigate();
-  // const {setUserId} = useContext(Context)
-  const {userId, setUserId} = props
+  const [userId, setUserId] = useContext(UserIdContext)
   const [user, setUser] = useState({
     email: "",
     password: ""

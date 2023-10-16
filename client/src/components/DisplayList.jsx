@@ -3,8 +3,14 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import MovieForm from './MovieForm'
 
+
+
+
+
 const DisplayList = (props) => {
-  const {userId, setUserId, movies, setMovies} = props
+  const { movies, setMovies} = props
+
+
 
   useEffect(() => {
     axios
@@ -18,13 +24,12 @@ const DisplayList = (props) => {
       })
   }, [])
 
-  console.log(userId)
 
 
   return (
     <div className='text-center w-50 mx-auto p-3 '>
       <div className='m-5'>
-        <MovieForm userId={userId} setUserId={setUserId}/>
+        <MovieForm/>
       </div>
       <div>
         <div>
