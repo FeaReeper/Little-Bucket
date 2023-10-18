@@ -1,28 +1,8 @@
-import axios from "axios";
-import React, { useState, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
-import { userContext } from '../context/UserContext'
+import React, {useState} from 'react'
 
 
-
-const MovieForm = () => {
-  const {currentUser, setCurrentUser} = useContext(userContext)
-  const { userId } = useParams(currentUser._id)
-
-
-  const [movie, setMovie] = useState({
-    title: '',
-    filmType: '',
-    genre: '',
-    age: '',
-    notes: ''
-  })
-
-  const [user, setUser] = useState({
-    movies: ''
-  })
-
-
+const UpdateMovie = () => {
+  const [movie, setMovie] = useState({})
 
   const handleChange = (e) => {
     setMovie({
@@ -31,38 +11,9 @@ const MovieForm = () => {
     })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    axios
-      .post('http://localhost:8000/api/newMovie', movie)
-      .then((res) => {
-        console.log(res)
-        setUser({
-          movies: res.data._id
-        })
-      //   axios
-      //     .patch(`http://localhost:8000/api/addMovieId/${userId}`, user)
-      //     .then((res2) => {
-      //       console.log(res2)
-      //     })
-      //     .catch((err) => {
-      //       console.log(err)
-      //     })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    setMovie({
-      title: '',
-      filmType: '',
-      genre: '',
-      age: '',
-      notes: ''
-    })
-  }
+const handleSubmit = (e) => {
 
-
-
+}
 
   return (
     <div>
@@ -111,15 +62,15 @@ const MovieForm = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group mt-3">
+          <div className="form-group mt-4">
             <label htmlFor="notes">Notes:</label>
-            <textarea onChange={handleChange} name="notes" id="notes" cols="40" rows="4" value={movie.notes}>{movie.notes}</textarea>
+            <textarea onChange={handleChange} name="notes" id="notes" cols="60" rows="4" value={movie.notes}>{movie.notes}</textarea>
           </div>
           <button className="btn btn-primary mt-3">Create</button>
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MovieForm;
+export default UpdateMovie

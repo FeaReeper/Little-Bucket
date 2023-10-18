@@ -22,35 +22,34 @@ const DisplayList = (props) => {
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+  })
 
 
 
   return (
-    <div className='text-center w-50 mx-auto p-3 '>
-      <div className='m-5'>
-        <MovieForm/>
-      </div>
-      <div>
-        <div>
-          <h2>All Movies and TV Shows</h2>
+    <div className='container text-center w-100 mx-auto p-3 '>
+            <Link to={'/dashboard'}>Home</Link>
+      <div className='d-flex'>
+        <div className='m-5 col'>
+          <MovieForm/>
         </div>
-        {
-          movies.map((movie) => {
-            return(
-              <div key={movie._id} className='m-5'>
-                <div>
-                  <h3>Title: {movie.title}</h3>
-                  <p>Film Type: {movie.filmType}</p>
-                  <p>Genre: {movie.genre}</p>
-                  <p>Age to Show: {movie.age}</p>
-                  <p>Notes: {movie.notes}</p>
+        <div className='col m-5'>
+          <div>
+            <h2 style={{color: '#1499ef'}}>All Movies and TV Shows</h2>
+          </div>
+          {
+            movies.map((movie) => {
+              return(
+                <div key={movie._id} className='m-5'>
+                  <div>
+                    <h3>Title: {movie.title}</h3>
+                  </div>
+                  <Link to={`/movie/${movie._id}`}>View Details</Link>
                 </div>
-                <Link to={`/movie/${movie._id}`}>Edit</Link>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
     </div>
   )

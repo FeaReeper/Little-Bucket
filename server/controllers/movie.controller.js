@@ -15,6 +15,13 @@ module.exports = {
         })
         .catch((err) => res.status(500).json({message: 'Error in controller for get all movies', error: err}))
     },
+    getOneMovie: (req, res) => {
+        Movie.findOne({_id:req.params.id})
+        .then((movie) => {
+            res.status(200).json(movie)
+        })
+        .catch((err) => res.status(500).json({message: 'Error in controllers for find one movie', error: err}))
+    },
     deleteOneMovie: (req, res) => {
         Movie.deleteOne({_id: req.params.id})
         .then((deleted) => {

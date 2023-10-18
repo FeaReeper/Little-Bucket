@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { userContext } from '../context/UserContext'
+
+
 
 const Register = () => {
+  const {currentUser, setCurrentUser} = useContext(userContext)
   const [confirmError, setConfirmError] = useState('')
-  const {userId} = useParams()
   const navigate = useNavigate();
   const [user, setUser] = useState({
     firstName: "",
@@ -29,7 +32,7 @@ const Register = () => {
       .post("http://localhost:8000/api/newUser", user, {withCredentials: true})
       .then((res) => {
         console.log(res.data);
-
+        setCurrentUser(res.data)
         navigate(`/dashboard`);
       })
       .catch((err) => {

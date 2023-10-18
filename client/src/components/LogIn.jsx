@@ -1,11 +1,11 @@
 import { React, useContext, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
-import { UserIdContext } from '../App'
+import { userContext } from '../context/UserContext'
 
 const LogIn = () => {
   const navigate = useNavigate();
-  const [userId, setUserId] = useContext(UserIdContext)
+  const {currentUser, setCurrentUser} = useContext(userContext)
   const [user, setUser] = useState({
     email: "",
     password: ""
@@ -25,8 +25,7 @@ const LogIn = () => {
       .post('http://localhost:8000/api/loginUser', user, {withCredentials: true})
       .then((res) => {
         console.log(res.data);
-        setUserId(res.data._id)
-        console.log(userId)
+        setCurrentUser(res.data)
         navigate(`/dashboard`);
       })
       .catch((err) => {
