@@ -18,8 +18,10 @@ const Nav = () => {
   }
 
   return (
-    <div className='text-center w-50 mx-auto p-3 d-flex justify-content-around '>
-            <Link to={'/'} onClick={logoutUser}>Log-Out</Link>
+    <div>
+      <div className=' w-100 mx-auto p-3 d-flex justify-content-end '>
+              <Link style={{color: 'white', textDecoration: 'none'}} to={'/'} onClick={logoutUser}>Log-Out</Link>
+      </div>
     </div>
   )
 }

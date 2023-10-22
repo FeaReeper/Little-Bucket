@@ -1,6 +1,14 @@
-import {createContext, useState} from 'react'
+import {createContext, useEffect, useState} from 'react'
 
-export const userContext = createContext()
+export const userContext = createContext({
+  currentUser: {
+    _id: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+  },
+  setCurrentUser: () => {}
+})
 
 export const UserContextProvider = (props) => {
   const [currentUser, setCurrentUser] = useState({
@@ -9,6 +17,13 @@ export const UserContextProvider = (props) => {
     lastName: '',
     email: '',
   });
+
+  useEffect(() => {
+    if (localStorage.getItem('currentUser')) {
+      // console.log(localStorage.getItem('currentUser'))
+      setCurrentUser(JSON.parse(localStorage.getItem('currentUser')))
+    }
+  },['currentUser'])
 
   return (
     <userContext.Provider value={{ currentUser, setCurrentUser}}>

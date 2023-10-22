@@ -22,6 +22,13 @@ module.exports = {
         })
         .catch((err) => res.status(500).json({message: 'Error in controllers for find one movie', error: err}))
     },
+    updateMovie: (req, res) => {
+        Movie.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, runValidators: true})
+        .then((updatedMovie) => {
+            res.status(200).json({note: updatedMovie})
+        })
+        .catch((err) => res.status(500).json({message: 'Error in controllers for update movie', error: err}))
+    },
     deleteOneMovie: (req, res) => {
         Movie.deleteOne({_id: req.params.id})
         .then((deleted) => {

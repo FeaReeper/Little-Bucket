@@ -19,9 +19,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password can not be blank"],
         minlength: [7, "Password must be at least 7 characters"]
-    },
-    movies: {
-        type: Array
     }
 }, {timestamps: true})
 

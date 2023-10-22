@@ -1,8 +1,30 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 
 const UpdateMovie = () => {
-  const [movie, setMovie] = useState({})
+  const [movie, setMovie] = useState({
+    title: '',
+    filmType: '',
+    genre: '',
+    age: '',
+    notes: ''
+  })
+  const { id } = useParams()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    axios
+    .get(`http://localhost:8000/api/oneMovie/${id}`)
+    .then((res) => {
+      console.log(res.data)
+      setMovie(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }, [])
 
   const handleChange = (e) => {
     setMovie({
@@ -12,6 +34,18 @@ const UpdateMovie = () => {
   }
 
 const handleSubmit = (e) => {
+  e.preventDefault();
+
+  axios
+    .patch(`http://localhost:8000/api/updateMovie/${id}`, movie)
+    .then((res) => {
+      console.log(res.data);
+      navigate(`/movie/${id}`);
+    })
+    .catch((err) => {
+      console.log(err);
+      // setError(err.response.data.error.errors)
+    });
 
 }
 
@@ -33,7 +67,7 @@ const handleSubmit = (e) => {
           </div>
           <div className="form-group mt-3">
             <label htmlFor="filmType">Movie or TV Show:</label>
-            <select className="form-control" name="filmType" id="filmType" onChange={handleChange}>
+            <select value={movie.filmType} className="form-control" name="filmType" id="filmType" onChange={handleChange}>
               <option value=""></option>
               <option value="Movie">Movie</option>
               <option value="TV Show">TV Show</option>
@@ -41,7 +75,7 @@ const handleSubmit = (e) => {
           </div>
           <div className="form-group mt-3">
             <label htmlFor="genre">Genre:</label>
-            <select className="form-control" name="genre" id="genre" onChange={handleChange}>
+            <select value={movie.genre} className="form-control" name="genre" id="genre" onChange={handleChange}>
               <option value=""></option>
               <option value="Family">Family</option>
               <option value="Comedy">Comedy</option>

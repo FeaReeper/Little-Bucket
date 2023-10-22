@@ -15,6 +15,9 @@ const MovieSchema = new mongoose.Schema({
     },
     age: {
         type: Number
+    },
+    userId: {
+        type: String
     }
 }, {timestamps: true})
 

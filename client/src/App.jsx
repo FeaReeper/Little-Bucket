@@ -7,6 +7,7 @@ import DisplayList from "./components/DisplayList";
 import Logo from "./assets/Logo.png";
 import DisplayOneMovie from "./components/DisplayOneMovie";
 import UpdateMovie from "./components/UpdateMovie";
+import Kids from "./components/Kids";
 
 
 function App() {
@@ -23,8 +24,9 @@ function App() {
               path="/dashboard/movies"
               element={<DisplayList movies={movies} setMovies={setMovies} />}
             />
-            <Route path="movie/:id" element={ <DisplayOneMovie/> }/>
-            <Route path="movie/update/:id" element={<UpdateMovie/>}/>
+            <Route path="/movie/:id" element={ <DisplayOneMovie/> }/>
+            <Route path="/movie/update/:id" element={<UpdateMovie/>}/>
+            <Route path="/myLittleOnes" element={<Kids/>}/>
           </Routes>
     </div>
   );

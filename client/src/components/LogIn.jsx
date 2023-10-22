@@ -24,8 +24,9 @@ const LogIn = () => {
     axios
       .post('http://localhost:8000/api/loginUser', user, {withCredentials: true})
       .then((res) => {
-        console.log(res.data);
-        setCurrentUser(res.data)
+        // console.log(res.data);
+        // setCurrentUser(res.data)
+        localStorage.setItem('currentUser', JSON.stringify(res.data))
         navigate(`/dashboard`);
       })
       .catch((err) => {
@@ -33,7 +34,7 @@ const LogIn = () => {
         // create an err message for validations. This grabs the error message in the model
         // setError(err.response.data.error.errors)
       });
-      
+    // localStorage.setItem('user', JSON.stringify(currentUser.firstName))
     
     }
     

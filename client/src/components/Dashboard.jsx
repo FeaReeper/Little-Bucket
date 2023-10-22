@@ -14,10 +14,19 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2>{currentUser.firstName} {currentUser.lastName}'s Dashboard</h2>
       <Nav/>
-      <h3>My Lists</h3>
-      <Link to={'/dashboard/movies'}>Movies and TV Shows</Link>
+      <div className='d-flex justify-content-between mt-5'>
+        <div className='col-5'>
+          <h2 className='d-flex'>{currentUser.firstName} {currentUser.lastName}</h2>
+          <Link style={{color: 'white', textDecoration: 'none'}} to={'/myLittleOnes'}>My Little Ones</Link>
+        </div>
+        <div className='col-5'>
+          <div className='card'>
+            <h3 style={{color: '#1499ef'}} className='card-header'>My Lists</h3>
+            <Link style={{textDecoration: 'none'}} className='card-body' to={'/dashboard/movies'}>Movies and TV Shows</Link>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

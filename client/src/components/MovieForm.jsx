@@ -5,17 +5,18 @@ import { userContext } from '../context/UserContext'
 
 
 
-const MovieForm = () => {
+const MovieForm = (props) => {
   const {currentUser, setCurrentUser} = useContext(userContext)
-  const { userId } = useParams(currentUser._id)
-
+  // const { userId } = useParams(currentUser._id)
+  const { loaded, setLoaded } = props
 
   const [movie, setMovie] = useState({
     title: '',
     filmType: '',
     genre: '',
     age: '',
-    notes: ''
+    notes: '',
+    userId: currentUser._id
   })
 
   const [user, setUser] = useState({
@@ -40,14 +41,7 @@ const MovieForm = () => {
         setUser({
           movies: res.data._id
         })
-      //   axios
-      //     .patch(`http://localhost:8000/api/addMovieId/${userId}`, user)
-      //     .then((res2) => {
-      //       console.log(res2)
-      //     })
-      //     .catch((err) => {
-      //       console.log(err)
-      //     })
+        setLoaded(false)
       })
       .catch((err) => {
         console.log(err)

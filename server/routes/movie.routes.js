@@ -5,4 +5,5 @@ module.exports = (app) => {
     app.get('/api/allMovies', MovieController.getAllMovies)
     app.get('/api/oneMovie/:id', MovieController.getOneMovie)
     app.delete('/api/deleteMovie/:id', MovieController.deleteOneMovie)
+    app.patch('/api/updateMovie/:id', MovieController.updateMovie)
 }
