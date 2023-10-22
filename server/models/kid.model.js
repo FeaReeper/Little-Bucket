@@ -8,6 +8,12 @@ const KidSchema = new mongoose.Schema({
         type: String
     },
     kidBirthDay: {
+        type: Date
+    },
+    // kidImage: {
+    //     type: File
+    // },
+    userId: {
         type: String
     }
 })

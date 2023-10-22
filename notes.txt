@@ -19,6 +19,24 @@ want to introduce to them that year.
 
 
 Places I am stuck:
-    creating my controller to add a movie id to movies array in user model
+
+Stopping point:
+    10/22: added links for other lists, make routes and components on front end
+            and make routes, controllers, models on back end
+    
+Things to do:
+    gitignore in root folder not have multiple for front and back end
+    Add errors for log in and registration
+    store currentUser in local storage on registration
+    Add image for user and kids
+    Add events and travel
+    Possibly implement socket.io
+    Deploy project (last thing)
 
 
+
+Project is on GitHub: { https://github.com/FeaReeper/Little-Bucket.git  I started this about a week ago, so i already have a good bit done. I also created a wire frame with a whiteboard app but I will make a better one with one of the resources you suggested.}
+.gitignore file in root folder: { Just let me know that you'll have it. }
+All of CRUD* on a non-User table: { The table is for movies that the user can add to a list. The user has the ability to create a new movie, view an existing movie, update an already created movie, and delete an already created movie. All of these CRUD functions are specific to the user logged in. }
+CSS implemented, and possibly other static content: { For CSS I am using bootstrap as well as inline styling. Hoping that will be enough but if I have to inline style too much I might create a static.css because I don't like my html return to be so cluttered. }
+Data is validated upon create and edit, errors show: { Yes, error message will display for all form types. }

@@ -6,8 +6,7 @@ import { userContext } from '../context/UserContext'
 
 
 const MovieForm = (props) => {
-  const {currentUser, setCurrentUser} = useContext(userContext)
-  // const { userId } = useParams(currentUser._id)
+  const {currentUser} = useContext(userContext)
   const { loaded, setLoaded } = props
 
   const [movie, setMovie] = useState({
@@ -18,11 +17,6 @@ const MovieForm = (props) => {
     notes: '',
     userId: currentUser._id
   })
-
-  const [user, setUser] = useState({
-    movies: ''
-  })
-
 
 
   const handleChange = (e) => {
@@ -38,9 +32,6 @@ const MovieForm = (props) => {
       .post('http://localhost:8000/api/newMovie', movie)
       .then((res) => {
         console.log(res)
-        setUser({
-          movies: res.data._id
-        })
         setLoaded(false)
       })
       .catch((err) => {

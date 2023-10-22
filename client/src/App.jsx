@@ -3,7 +3,7 @@ import {  Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
-import DisplayList from "./components/DisplayList";
+import DisplayList from "./components/DisplayMovieList";
 import Logo from "./assets/Logo.png";
 import DisplayOneMovie from "./components/DisplayOneMovie";
 import UpdateMovie from "./components/UpdateMovie";

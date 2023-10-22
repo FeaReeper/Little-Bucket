@@ -1,17 +1,75 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { userContext } from "../context/UserContext";
+import axios from "axios";
 
 const Kids = () => {
+  const { currentUser } = useContext(userContext);
+  const [kid, setKid] = useState({
+    kidFirstName: "",
+    gender: "",
+    kidBirthDay: "",
+    userId: currentUser._id,
+  });
 
+  const handleChange = (e) => {
+    setKid({
+      ...kid,
+      [e.target.name]: e.target.value,
+    });
+  };
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    axios
+    .post('http://localhost:8000/api/newKid', kid)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
 
   return (
     <div>
+      <h1 style={{ color: "#1499ef" }}>Add a Movie or TV Show</h1>
       <div>
-        <form>
-          <div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
             <label htmlFor="kidFirstName">Name:</label>
-            <input type="text" id="kidFirstName" name="kidsFirstName" />
+            <input
+              className="form-control"
+              type="text"
+              id="kidFirstName"
+              name="kidFirstName"
+              value={kid.kidFirstName}
+              onChange={handleChange}
+            />
           </div>
+          <div className="form-group mt-3">
+            <label htmlFor="gender">Boy or Girl:</label>
+            <select
+              className="form-control"
+              name="gender"
+              id="gender"
+              onChange={handleChange}
+            >
+              <option value=""></option>
+              <option value="Boy">Boy</option>
+              <option value="Girl">Girl</option>
+            </select>
+          </div>
+          <div className="form-group mt-3">
+            <label htmlFor="kidBirthDay">Birth Date:</label>
+            <input
+              type="date"
+              name="kidBirthDay"
+              id="kidBirthDay"
+              onChange={handleChange}
+            />
+          </div>
+          <button className="btn btn-primary mt-3">Add</button>
         </form>
       </div>
     </div>
