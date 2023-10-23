@@ -27,7 +27,7 @@ const Dashboard = () => {
             <h3 style={{color: '#1499ef'}} className='card-header'>My Lists</h3>
             <Link style={{textDecoration: 'none'}} className='card-body' to={'/dashboard/movies'}>Movies and TV Shows</Link>
             <Link style={{textDecoration: 'none'}} className='card-body' to={'/dashboard/events'}>Events</Link>
-            <Link style={{textDecoration: 'none'}} className='card-body' to={'/dashboard/travelDestinations'}>Travel Destinations</Link>
+            <Link style={{textDecoration: 'none'}} className='card-body' to={'/dashboard/travel'}>Travel Destinations</Link>
           </div>
         </div>
       </div>

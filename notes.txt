@@ -36,7 +36,7 @@ Things to do:
 
 
 Project is on GitHub: { https://github.com/FeaReeper/Little-Bucket.git  I started this about a week ago, so i already have a good bit done. I also created a wire frame with a whiteboard app but I will make a better one with one of the resources you suggested.}
-.gitignore file in root folder: { Just let me know that you'll have it. }
-All of CRUD* on a non-User table: { The table is for movies that the user can add to a list. The user has the ability to create a new movie, view an existing movie, update an already created movie, and delete an already created movie. All of these CRUD functions are specific to the user logged in. }
+.gitignore file in root folder: { Currently have 2 gitignore files, one in server and one in client. I will change it to one in root folder }
+All of CRUD* on a non-User table: { The table is for movies that the user can add to a list. The user has the ability to create a new movie, view an existing movie, update an already created movie, and delete an already created movie. All of these CRUD functions are specific to the user logged in. I plan to add more lists, like events and travel destinations to take your kids to. }
 CSS implemented, and possibly other static content: { For CSS I am using bootstrap as well as inline styling. Hoping that will be enough but if I have to inline style too much I might create a static.css because I don't like my html return to be so cluttered. }
 Data is validated upon create and edit, errors show: { Yes, error message will display for all form types. }

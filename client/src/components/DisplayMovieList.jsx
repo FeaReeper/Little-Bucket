@@ -5,10 +5,10 @@ import MovieForm from "./MovieForm";
 import { userContext } from "../context/UserContext";
 import Nav from "./Nav";
 
-const DisplayList = (props) => {
-  const { movies, setMovies } = props;
+const DisplayList = () => {
+  const [ movies, setMovies ] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  const { currentUser, setCurrentUser } = useContext(userContext);
+  const { currentUser } = useContext(userContext);
 
   useEffect(() => {
     axios
@@ -26,7 +26,7 @@ const DisplayList = (props) => {
   return (
     <div className="container text-center w-100 mx-auto p-3 ">
       <div className="d-flex justify-content-between ">
-        <Link style={{color: 'white'}} className="d-flex align-items-center" to={"/dashboard"}>Home</Link>
+        <Link style={{color: 'white'}} className="d-flex align-items-center" to={"/dashboard"}>Dashboard</Link>
         <Nav />
       </div>
       <div className="d-flex">
