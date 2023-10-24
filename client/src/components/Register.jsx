@@ -31,8 +31,8 @@ const Register = () => {
     axios
       .post("http://localhost:8000/api/newUser", user, {withCredentials: true})
       .then((res) => {
-        console.log(res.data);
-        setCurrentUser(res.data)
+        // console.log(res.data);
+        localStorage.setItem('currentUser', JSON.stringify(res.data))
         navigate(`/dashboard`);
       })
       .catch((err) => {

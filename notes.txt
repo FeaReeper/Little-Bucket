@@ -27,9 +27,9 @@ Stopping point:
 Things to do:
     gitignore in root folder not have multiple for front and back end
     Add errors for log in and registration
-    store currentUser in local storage on registration
+    Make form more generic with tags so I can have one form. Also one display of the list of items with a filter option to see only movies, events or travel
+
     Add image for user and kids
-    Add events and travel
     Possibly implement socket.io
     Deploy project (last thing)
 

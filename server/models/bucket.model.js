@@ -1,26 +1,26 @@
 const mongoose = require('mongoose')
 
-const MovieSchema = new mongoose.Schema({
-    filmType: {
-        type: String
-    },
+const BucketSchema = new mongoose.Schema({
     title: {
         type: String
     },
-    genre: {
+    age: {
+        type: Number
+    },
+    description: {
         type: String
     },
     notes: {
         type: String
     },
-    age: {
-        type: Number
+    tag: {
+        type: String
     },
     userId: {
         type: String
     }
 }, {timestamps: true})
 
-const Movie = mongoose.model('Movie', MovieSchema)
+const Bucket = mongoose.model('Bucket', BucketSchema)
 
-module.exports = Movie
+module.exports = Bucket

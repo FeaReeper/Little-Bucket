@@ -1,19 +1,12 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
-import DisplayMovieList from "./components/DisplayMovieList";
+import DisplayBucketList from "./components/DisplayBucketList";
 import Logo from "./assets/Logo.png";
-import DisplayOneMovie from "./components/DisplayOneMovie";
-import UpdateMovie from "./components/UpdateMovie";
+import DisplayOneBucket from "./components/DisplayOneBucket";
+import UpdateBucket from "./components/UpdateBucket";
 import Kids from "./components/Kids";
-import DisplayEventList from "./components/DisplayEventList";
-import DisplayTravelList from "./components/DisplayTravelList";
-import DisplayOneEvent from "./components/DisplayOneEvent";
-import DisplayOneTravel from "./components/DisplayOneTravel";
-import UpdateEvent from "./components/UpdateEvent";
-import UpdateTravel from "./components/UpdateTravel";
 
 function App() {
   return (
@@ -25,18 +18,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* Movies List and Routes */}
-        <Route path="/dashboard/movies" element={<DisplayMovieList />} />
-        <Route path="/movie/:id" element={<DisplayOneMovie />} />
-        <Route path="/movie/update/:id" element={<UpdateMovie />} />
-        {/* Events List and Routes */}
-        <Route path="/dashboard/events" element={<DisplayEventList/>}/>
-        <Route path="/event/:id" element={<DisplayOneEvent/>}/>
-        <Route path="/event/update/:id" element={<UpdateEvent/>}/>
-        {/* Travel List and Routes */}
-        <Route path="/dashboard/travel" element={<DisplayTravelList/>}/>
-        <Route path="/travel/:id" element={<DisplayOneTravel/>}/>
-        <Route path="/travel/update/:id" element={<UpdateTravel/>}/>
+        {/* Buckets List and Routes */}
+        <Route path="/dashboard/buckets" element={<DisplayBucketList />} />
+        <Route path="/bucket/:id" element={<DisplayOneBucket />} />
+        <Route path="/bucket/update/:id" element={<UpdateBucket />} />
         {/* Kids Routes */}
         <Route path="/myLittleOnes" element={<Kids />} />
       </Routes>

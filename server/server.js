@@ -13,8 +13,8 @@ app.use(cors({credentials:true, origin:'http://localhost:5173'}))
 const AllUserRoutes = require("./routes/user.routes");
 AllUserRoutes(app);
 
-const AllMovieRoutes = require("./routes/movie.routes")
-AllMovieRoutes(app)
+const AllBucketRoutes = require("./routes/bucket.routes")
+AllBucketRoutes(app)
 
 const AllKidRoutes = require('./routes/kid.routes')
 AllKidRoutes(app)

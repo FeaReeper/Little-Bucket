@@ -33,7 +33,7 @@ const Kids = () => {
 
   return (
     <div>
-      <h1 style={{ color: "#1499ef" }}>Add a Movie or TV Show</h1>
+      <h1 style={{ color: "#1499ef" }}>Add a Little One</h1>
       <div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -60,8 +60,8 @@ const Kids = () => {
               <option value="Girl">Girl</option>
             </select>
           </div>
-          <div className="form-group mt-3">
-            <label htmlFor="kidBirthDay">Birth Date:</label>
+          <div className="form-group mt-3 d-flex justify-content-center  gap-5 ">
+            <label  htmlFor="kidBirthDay">Birth Date:</label>
             <input
               type="date"
               name="kidBirthDay"
