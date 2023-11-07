@@ -8,6 +8,8 @@ import { userContext } from '../context/UserContext'
 const BucketForm = (props) => {
   const {currentUser} = useContext(userContext)
   const { setLoaded } = props
+  
+
 
   const [bucket, setBucket] = useState({
     title: '',
@@ -36,6 +38,7 @@ const BucketForm = (props) => {
       })
       .catch((err) => {
         console.log(err)
+        
       })
     setBucket({
       title: '',
@@ -52,7 +55,7 @@ const BucketForm = (props) => {
 
   return (
     <div>
-      <h1 style={{color: '#1499ef'}}>Add to Bucket List</h1>
+      <h1 className="sub-title">Add to Bucket List</h1>
       <div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

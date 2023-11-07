@@ -20,7 +20,7 @@ const Nav = () => {
   return (
     <div>
       <div className=' w-100 mx-auto p-3 d-flex justify-content-end '>
-              <Link style={{color: 'white', textDecoration: 'none'}} to={'/'} onClick={logoutUser}>Log-Out</Link>
+              <Link className='link-white-no-decor' to={'/'} onClick={logoutUser}>Log-Out</Link>
       </div>
     </div>
   )

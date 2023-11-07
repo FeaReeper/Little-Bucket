@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import axios from 'axios'
+import Nav from './Nav'
 
 
 const UpdateBucket = () => {
@@ -51,7 +52,12 @@ const handleSubmit = (e) => {
 
   return (
     <div>
-      <h1 style={{color: '#1499ef'}}>Update Your Bucket Item</h1>
+      <div className='d-flex justify-content-around align-items-center'>
+        <Link to={'/dashboard'} className='link-white-no-decor'>Dashboard</Link>
+        <Link to={'/dashboard/buckets'} className='link-white-no-decor'>Back to List</Link>
+        <Nav/>
+      </div>
+      <h1 className='sub-title'>Update Your Bucket Item</h1>
       <div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

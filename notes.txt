@@ -20,18 +20,25 @@ want to introduce to them that year.
 
 Places I am stuck:
 
+
 Stopping point:
-    10/22: added links for other lists, make routes and components on front end
-            and make routes, controllers, models on back end
     
+
 Things to do:
     gitignore in root folder not have multiple for front and back end
     Add errors for log in and registration
-    Make form more generic with tags so I can have one form. Also one display of the list of items with a filter option to see only movies, events or travel
-
-    Add image for user and kids
-    Possibly implement socket.io
+    Add links for display list.
+    Add this file to gitignore 
     Deploy project (last thing)
+
+Stretch Goals:
+    Make a mobile version so:
+        Add kids so user can get alerts for birthday's
+        Add image for user and kids and display
+    Possibly Add a collage section for photos you can upload
+
+
+
 
 
 

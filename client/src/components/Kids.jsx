@@ -8,6 +8,7 @@ const Kids = () => {
     kidFirstName: "",
     gender: "",
     kidBirthDay: "",
+    kidImage: null,
     userId: currentUser._id,
   });
 
@@ -60,7 +61,7 @@ const Kids = () => {
               <option value="Girl">Girl</option>
             </select>
           </div>
-          <div className="form-group mt-3 d-flex justify-content-center  gap-5 ">
+          <div className="form-group mt-4 d-flex justify-content-around  gap-5 ">
             <label  htmlFor="kidBirthDay">Birth Date:</label>
             <input
               type="date"
@@ -69,7 +70,11 @@ const Kids = () => {
               onChange={handleChange}
             />
           </div>
-          <button className="btn btn-primary mt-3">Add</button>
+          <div className="form-group mt-4 d-flex justify-content-around gap-5 ">
+            <label style={{marginLeft: '30px'}} htmlFor="kidImage">Add Photo:</label>
+            <input type="file" className="w-25" name="kidImage" id='kidImage'/>
+          </div>
+          <button className="btn btn-primary mt-4">Add</button>
         </form>
       </div>
     </div>

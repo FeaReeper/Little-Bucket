@@ -6,10 +6,10 @@ import { userContext } from "../context/UserContext";
 import Nav from "./Nav";
 
 const DisplayBucketList = () => {
-  const [ buckets, setBuckets ] = useState([]);
+  const [buckets, setBuckets] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const { currentUser } = useContext(userContext);
-
+  const [searchTag, setSearchTag] = useState('')
 
   useEffect(() => {
     axios
@@ -24,10 +24,39 @@ const DisplayBucketList = () => {
       });
   }, [loaded]);
 
+  const handleChange = (e) => {
+    setSearchTag(e.target.value)
+  }
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    if (searchTag){
+      const filteredBuckets = buckets.filter((bucket) => searchTag === bucket.tag)
+      setBuckets(filteredBuckets)
+    }
+    else {
+      axios
+      .get("http://localhost:8000/api/allBuckets")
+      .then((res) => {
+        console.log(res.data);
+        setBuckets(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    }
+  };
+
   return (
-    <div className="container text-center w-100 mx-auto p-3 ">
+    <div className="container text-center mx-auto p-3 ">
       <div className="d-flex justify-content-between ">
-        <Link style={{color: 'white', textDecoration: 'none'}} className="d-flex align-items-center" to={"/dashboard"}>Dashboard</Link>
+        <Link
+          className="d-flex align-items-center link-white-no-decor"
+          to={"/dashboard"}
+        >
+          Dashboard
+        </Link>
         <Nav />
       </div>
       <div className="d-flex">
@@ -36,16 +65,31 @@ const DisplayBucketList = () => {
         </div>
         <div className="col m-5">
           <div>
-            <h2 style={{ color: "#1499ef" }}>All Bucket Items</h2>
+            <h2 className="sub-title">All Bucket Items</h2>
           </div>
-          {buckets.map((bucket) => {
+          <div className="mt-4">
+            <form className='d-flex ' onSubmit={handleSearch}>
+              <label htmlFor="search">Search by Tag: </label>
+              <input className="m-3" type="search" id="search" name="search" onChange={handleChange}/>
+              <button className="btn border h-50 m-auto">Search</button>
+            </form>
+          </div>
+          {
+          buckets.map((bucket) => {
             if (bucket.userId == currentUser._id)
               return (
-                <div key={bucket._id} className="m-5">
+                <div key={bucket._id} className="m-4">
                   <div>
                     <h3>Title: {bucket.title}</h3>
+                    <p>Tag: {bucket.tag}</p>
+                    <p>Age to Show: {bucket.age}</p>
                   </div>
-                  <Link to={`/bucket/${bucket._id}`} style={{textDecoration: 'none'}}>View Details</Link>
+                  <Link
+                    to={`/bucket/${bucket._id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    View Details
+                  </Link>
                 </div>
               );
           })}

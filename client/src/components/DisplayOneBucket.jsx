@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import axios from 'axios'
+import Nav from './Nav'
 
 const DisplayOneBucket = () => {
   const {id} = useParams()
@@ -32,7 +33,11 @@ const DisplayOneBucket = () => {
 
   return (
     <div>
-      <Link to={'/dashboard'} style={{textDecoration: 'none', color: 'white'}}>Dashboard</Link>
+      <div className='d-flex justify-content-around align-items-center'>
+        <Link to={'/dashboard'} className='link-white-no-decor'>Dashboard</Link>
+        <Link to={'/dashboard/buckets'} className='link-white-no-decor'>Back to List</Link>
+        <Nav/>
+      </div>
       <div className='mt-5'>
         <h3>Title: {bucket.title}</h3>
         <p>Age to Show: {bucket.age}</p>

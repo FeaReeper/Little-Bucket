@@ -1,13 +1,12 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import { userContext } from '../context/UserContext'
 
 
 
 const Register = () => {
-  const {currentUser, setCurrentUser} = useContext(userContext)
-  const [confirmError, setConfirmError] = useState('')
+  const [error, setError] = useState({})
+
   const navigate = useNavigate();
   const [user, setUser] = useState({
     firstName: "",
@@ -37,8 +36,8 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err);
-        // create an err message for validations. This grabs the error message in the model
-        // setError(err.response.data.error.errors)
+        // create an err message for validations
+        setError(err.response.data.error.errors)
       });
   };
 
@@ -58,6 +57,9 @@ const Register = () => {
               value={user.firstName}
               onChange={handleChange}
             />
+            {
+              error.firstName ? <p>{error.firstName.message}</p> : null
+            }
           </div>
           <div className="form-group mt-3">
             <label htmlFor="lastName">Last Name:</label>
@@ -69,6 +71,9 @@ const Register = () => {
               value={user.lastName}
               onChange={handleChange}
             />
+            {
+              error.lastName ? <p>{error.lastName.message}</p> : null
+            }
           </div>
           <div className="form-group mt-3">
             <label htmlFor="email">Email:</label>
@@ -80,6 +85,9 @@ const Register = () => {
               value={user.email}
               onChange={handleChange}
             />
+            {
+              error.email ? <p>{error.email.message}</p> : null
+            }
           </div>
           <div className="form-group mt-3">
             <label htmlFor="password">Password:</label>
@@ -91,6 +99,9 @@ const Register = () => {
               value={user.password}
               onChange={handleChange}
             />
+            {
+              error.password ? <p>{error.password.message}</p> : null
+            }
           </div>
           <div className="form-group mt-3">
             <label htmlFor="confirmPassword">Confirm Password:</label>
@@ -102,6 +113,9 @@ const Register = () => {
               value={user.confirmPassword}
               onChange={handleChange}
             />
+            {
+              error.confirmPassword ? <p>{error.confirmPassword.message}</p> : null
+            }
           </div>
           <button className="btn btn-primary mt-3">Create</button>
         </form>

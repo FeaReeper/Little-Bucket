@@ -7,10 +7,12 @@ import Logo from "./assets/Logo.png";
 import DisplayOneBucket from "./components/DisplayOneBucket";
 import UpdateBucket from "./components/UpdateBucket";
 import Kids from "./components/Kids";
+import './App.css'
 
 function App() {
   return (
     <div className="text-center w-50 mx-auto p-3 ">
+      {/* Logo For All Pages */}
       <img src={Logo} alt="Little Buckets Logo" className="mt-5 mb-3 " />
       <Routes>
         {/* Register and Log-In Routes */}

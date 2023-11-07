@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
 
-
+// Displays Link to Register as well as Imports Log-In Component
   return (
     <div>
       <Link className='mx-3' to={'/register'}>Register</Link>
