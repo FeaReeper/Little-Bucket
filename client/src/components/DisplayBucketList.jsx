@@ -50,7 +50,7 @@ const DisplayBucketList = () => {
 
   return (
     <div className="container text-center mx-auto p-3 ">
-      <div className="d-flex justify-content-between ">
+      <div className="d-flex justify-content-around">
         <Link
           className="d-flex align-items-center link-white-no-decor"
           to={"/dashboard"}
@@ -86,7 +86,8 @@ const DisplayBucketList = () => {
                   </div>
                   <Link
                     to={`/bucket/${bucket._id}`}
-                    style={{ textDecoration: "none" }}
+                    className="btn btn-primary"
+                    // style={{ textDecoration: "none"}}
                   >
                     View Details
                   </Link>

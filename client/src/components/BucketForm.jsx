@@ -8,6 +8,7 @@ import { userContext } from '../context/UserContext'
 const BucketForm = (props) => {
   const {currentUser} = useContext(userContext)
   const { setLoaded } = props
+  const [error, setError] = useState({})
   
 
 
@@ -38,7 +39,7 @@ const BucketForm = (props) => {
       })
       .catch((err) => {
         console.log(err)
-        
+        setError(err.response.data.error.errors)
       })
     setBucket({
       title: '',
@@ -68,6 +69,9 @@ const BucketForm = (props) => {
               value={bucket.title}
               onChange={handleChange}
             />
+            {
+              error.title ? <p>{error.title.message}</p> : null
+            }
           </div>
           <div className="form-group mt-3">
             <label htmlFor="age">Age to Show:</label>
@@ -79,6 +83,9 @@ const BucketForm = (props) => {
               value={bucket.age}
               onChange={handleChange}
             />
+            {
+              error.age ? <p>{error.age.message}</p> : null
+            }
           </div>
           <div className="form-group mt-3">
             <label htmlFor="description">Description:</label>
@@ -98,6 +105,9 @@ const BucketForm = (props) => {
               value={bucket.tag}
               onChange={handleChange}
             />
+            {
+              error.tag ? <p>{error.tag.message}</p> : null
+            }
           </div>
           <button className="btn btn-primary mt-3">Create</button>
         </form>

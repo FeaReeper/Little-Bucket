@@ -14,6 +14,8 @@ const UpdateBucket = () => {
   })
   const { id } = useParams()
   const navigate = useNavigate()
+  const [error, setError] = useState({})
+
 
   useEffect(() => {
     axios
@@ -45,7 +47,7 @@ const handleSubmit = (e) => {
     })
     .catch((err) => {
       console.log(err);
-      // setError(err.response.data.error.errors)
+      setError(err.response.data.error.errors)
     });
 
 }
@@ -70,6 +72,9 @@ const handleSubmit = (e) => {
               value={bucket.title}
               onChange={handleChange}
             />
+            {
+              error.title ? <p>{error.title.message}</p> : null
+            }
           </div>
           <div className="form-group mt-3">
             <label htmlFor="age">Age to Show:</label>
@@ -81,6 +86,9 @@ const handleSubmit = (e) => {
               value={bucket.age}
               onChange={handleChange}
             />
+            {
+              error.age ? <p>{error.age.message}</p> : null
+            }
           </div>
           <div className="form-group mt-3">
             <label htmlFor="description">Description:</label>
@@ -100,6 +108,9 @@ const handleSubmit = (e) => {
               value={bucket.tag}
               onChange={handleChange}
             />
+            {
+              error.tag ? <p>{error.tag.message}</p> : null
+            }
           </div>
           <button className="btn btn-primary mt-3">Update</button>
         </form>

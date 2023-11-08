@@ -14,9 +14,9 @@ const Home = () => {
 // Displays Link to Register as well as Imports Log-In Component
   return (
     <div>
-      <Link className='mx-3' to={'/register'}>Register</Link>
       <div>
         <LogIn/>
+        <Link className='mx-3 link-white-no-decor' to={'/register'}>Click to Register</Link>
       </div>
       <div>
         <img src={Slogan} alt="slogan" style={{width: '600px'}}/>

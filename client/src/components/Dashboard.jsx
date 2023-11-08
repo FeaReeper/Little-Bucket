@@ -18,7 +18,7 @@ const Dashboard = () => {
       <Nav/>
       <div className='card mt-5'>
         <h3 style={{color: '#1499ef'}} className='card-header'>{currentUser.firstName} {currentUser.lastName}</h3>
-        <div className='card-body d-flex mx-auto w-100'>
+        <div className='card-body d-flex'>
           <Link className='card-body link-white-no-decor' to={'/myLittleOnes'}>My Little Ones</Link>
           <Link className='card-body link-white-no-decor' to={'/dashboard/buckets'}>Little Bucket List</Link>
         </div>
