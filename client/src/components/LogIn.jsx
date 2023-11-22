@@ -31,10 +31,12 @@ const LogIn = () => {
         // Set local storage to the current user that is logged in. 
         // Then in UserContext.jsx I stored the local storage as the currentUser to use across application
         localStorage.setItem("currentUser", JSON.stringify(res.data));
+        setCurrentUser(res.data)
         navigate(`/dashboard`);
       })
       .catch((err) => {
         console.log(err);
+        console.log(err.response.data.error)
         // create an err message for validations
         setError(err.response.data.error.errors);
       });
@@ -54,7 +56,7 @@ const LogIn = () => {
               name="email"
               onChange={handleChange}
             />
-            {error.email ? <p>{error.email.message}</p> : null}
+            {/* {error.email ? <p>{error.email.message}</p> : null} */}
           </div>
           <div className="form-group mt-3 ">
             <label htmlFor="password">Password:</label>
@@ -65,7 +67,7 @@ const LogIn = () => {
               name="password"
               onChange={handleChange}
             />
-            {error.password ? <p>{error.password.message}</p> : null}
+            {/* {error.password ? <p>{error.password.message}</p> : null} */}
           </div>
           <div>
             <button className="btn btn-primary mt-3 mx-3">Login</button>
