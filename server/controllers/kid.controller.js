@@ -1,4 +1,5 @@
 const Kid = require('../models/kid.model')
+const upload = multer({ storage })
 
 module.exports = {
     newKid: (req, res) => {
