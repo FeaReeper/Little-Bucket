@@ -15,12 +15,14 @@ const Kids = () => {
   const handleChange = (e) => {
     setKid({
       ...kid,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const formData = new FormData()
+    formData.append('kidImage', kid.kidImage)
 
     axios
     .post('http://localhost:8000/api/newKid', kid)
@@ -72,7 +74,7 @@ const Kids = () => {
           </div>
           <div className="form-group mt-4 d-flex justify-content-around gap-5 ">
             <label style={{marginLeft: '30px'}} htmlFor="kidImage">Add Photo:</label>
-            <input type="file" className="w-25" name="kidImage" id='kidImage'/>
+            <input type="file" className="w-25" name="kidImage" id='kidImage' onChange={handleChange}/>
           </div>
           <button className="btn btn-primary mt-4">Add</button>
         </form>
