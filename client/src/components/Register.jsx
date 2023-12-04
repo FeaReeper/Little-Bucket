@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-
+import { userContext } from "../context/UserContext";
 
 
 const Register = () => {
   const [error, setError] = useState({})
-
+  const { currentUser, setCurrentUser } = useContext(userContext)
   const navigate = useNavigate();
   const [user, setUser] = useState({
     firstName: "",
@@ -32,6 +32,7 @@ const Register = () => {
       .then((res) => {
         // console.log(res.data);
         localStorage.setItem('currentUser', JSON.stringify(res.data))
+        setCurrentUser(res.data)
         navigate(`/dashboard`);
       })
       .catch((err) => {
