@@ -6,6 +6,7 @@ import Travel from '../assets/travel.jpg'
 import Slogan from '../assets/Slogan.png'
 import LogIn from './LogIn'
 import { Link } from 'react-router-dom'
+import Parents from '../assets/parents.jpg'
 
 
 
@@ -32,6 +33,9 @@ const Home = () => {
           <div>
             <img style={{height: '500px'}} className='w-75 mt-5 ' src={Travel} alt="travel picture" />
             <p>Save Destinations to Travel to With Them!</p>
+          </div>
+          <div>
+            <img className='w-75 mt-5' src={Parents} alt="" />
           </div>
         </div>
         <p className='mt-5'>Inspired by Nyalee Emilia</p>

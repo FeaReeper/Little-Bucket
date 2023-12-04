@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
 import { userContext } from '../context/UserContext'
-import Parents from '../assets/parents.jpg'
 import axios from 'axios'
 
 
@@ -48,9 +47,6 @@ const Dashboard = () => {
             <Link className='card-body link-white-no-decor' to={'/dashboard/buckets'}>Little Bucket List</Link>
           </div>
         </div>
-      </div>
-      <div>
-        <img className='w-75 mt-5' src={Parents} alt="" />
       </div>
     </div>
   )

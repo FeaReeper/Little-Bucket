@@ -1,6 +1,7 @@
 .link-white-no-decor {
-    color: white;
+    color: black;
     text-decoration: none;
+    font-weight: bolder;
 }
 
 .sub-title {
@@ -15,7 +16,7 @@
 }
 
 .background-image {
-    background: url(./assets/background.jpg);
+    background: url(./assets/bucket.jpg);
     background-size: cover;
     height: fit-content;
 }
