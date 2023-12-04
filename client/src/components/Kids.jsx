@@ -1,16 +1,19 @@
 import React, { useContext, useState } from "react";
 import { userContext } from "../context/UserContext";
 import axios from "axios";
+import {useNavigate} from 'react-router-dom'
 
 const Kids = () => {
   const { currentUser } = useContext(userContext);
+  const navigate = useNavigate()
   const [kid, setKid] = useState({
     kidFirstName: "",
     gender: "",
     kidBirthDay: "",
-    kidImage: null,
+    // kidImage: null,
     userId: currentUser._id,
   });
+  console.log(kid)
 
   const handleChange = (e) => {
     setKid({
@@ -21,13 +24,14 @@ const Kids = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const formData = new FormData()
-    formData.append('kidImage', kid.kidImage)
+    // const formData = new FormData()
+    // formData.append('kidImage', kid.kidImage)
 
     axios
     .post('http://localhost:8000/api/newKid', kid)
     .then((res) => {
       console.log(res)
+      navigate('/dashboard')
     })
     .catch((err) => {
       console.log(err)
@@ -72,10 +76,10 @@ const Kids = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group mt-4 d-flex justify-content-around gap-5 ">
+          {/* <div className="form-group mt-4 d-flex justify-content-around gap-5 ">
             <label style={{marginLeft: '30px'}} htmlFor="kidImage">Add Photo:</label>
             <input type="file" className="w-25" name="kidImage" id='kidImage' onChange={handleChange}/>
-          </div>
+          </div> */}
           <button className="btn btn-primary mt-4">Add</button>
         </form>
       </div>

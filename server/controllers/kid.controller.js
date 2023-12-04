@@ -1,5 +1,5 @@
 const Kid = require('../models/kid.model')
-const upload = multer({ storage })
+
 
 module.exports = {
     newKid: (req, res) => {
@@ -10,5 +10,12 @@ module.exports = {
         .catch((err) => {
             res.status(500).json({message: 'Error in controllers to add new kid', error: err})
         })
+    },
+    allKids: (req, res) => {
+        Kid.find({})
+        .then((kids) => {
+            res.status(200).json(kids)
+        })
+        .catch((err) => res.status(500).json({message: 'Error in controller for get all Kids', error: err}))
     }
 }
