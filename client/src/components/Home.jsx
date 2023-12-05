@@ -16,7 +16,7 @@ const slides = [Event, Movies, Travel, Parents]
 const [imageNum, setImageNum] = useState(0)
 const [subtext, setSubtext] = useState([
   'Save events to take them to',
-  'Remember films shows to show them',
+  'Remember films to show them',
   'Plan travel destinations',
   'Teach them life lessons'
 ])
@@ -24,15 +24,13 @@ const [subtext, setSubtext] = useState([
 // Displays Link to Register as well as Imports Log-In Component
   return (
     <div>
+      <Link className='mx-5 link-white-no-decor' to={'/register'}>Register</Link>
+      <Link className='mx-5 link-white-no-decor' to={'/logIn'}>Log In</Link>
       <div>
-        <LogIn/>
-        <Link className='mx-3 link-white-no-decor' to={'/register'}>Click to Register</Link>
-      </div>
-      <div>
-        <img src={Slogan} alt="slogan" style={{width: '600px'}} className='mt-5'/>
+        {/* <img src={Slogan} alt="slogan" style={{width: '600px'}} className='mt-5'/> */}
         <div className='d-flex align-items-center'>
           {
-            <div className='mx-auto mt-5'>
+            <div className='mx-auto mt-4 border p-4 bg-white'>
               <SimpleImageSlider
                 width={800}
                 height={550}
@@ -50,6 +48,12 @@ const [subtext, setSubtext] = useState([
             </div>
           }
         </div>
+        {/* <div className='d-flex justify-content-center '>
+          <div className='mt-5 border' style={{width:'400px'}}>
+            <LogIn/>
+            <Link className='mx-3 link-white-no-decor' to={'/register'}>Click to Register</Link>
+          </div>
+        </div> */}
         <p className='mt-5 text-dark'>Inspired by Nyalee Emilia</p>
       </div>
     </div>
