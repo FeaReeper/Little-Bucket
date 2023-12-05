@@ -44,11 +44,11 @@ const LogIn = () => {
 
   return (
     <div className="text-center w-50 mx-auto p-3 ">
-      <h2>Log-In</h2>
+      <h2 className="text-dark">Log-In</h2>
       <div>
         <form onSubmit={handleSubmit}>
           <div className="form-group mt-3 ">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email" className="text-dark">Email:</label>
             <input
               className="form-control"
               type="text"
@@ -59,7 +59,7 @@ const LogIn = () => {
             {/* {error.email ? <p>{error.email.message}</p> : null} */}
           </div>
           <div className="form-group mt-3 ">
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password" className="text-dark">Password:</label>
             <input
               className="form-control"
               type="password"
