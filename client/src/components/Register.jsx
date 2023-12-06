@@ -44,12 +44,12 @@ const Register = () => {
 
   return (
     <div className="text-center w-50 mx-auto p-3 ">
-      <Link to={"/"}>Home</Link>
-      <h2 className="mt-5">Register</h2>
+      <Link className='mx-3 link-white-no-decor' to={"/"}>Home</Link>
+      <h2 className="mt-5 text-dark font-weight-bold">Register</h2>
       <div className="mt-3">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="text-dark font-weight-bold">
           <div className="form-group">
-            <label htmlFor="firstName">First Name:</label>
+            <label htmlFor="firstName" >First Name:</label>
             <input
               className="form-control"
               type="text"
@@ -118,9 +118,10 @@ const Register = () => {
               error.confirmPassword ? <p>{error.confirmPassword.message}</p> : null
             }
           </div>
-          <button className="btn btn-primary mt-3">Create</button>
+          <button className="btn btn-primary mt-3">Register</button>
         </form>
       </div>
+      <div style={{height:'220px'}}></div>
     </div>
   );
 };

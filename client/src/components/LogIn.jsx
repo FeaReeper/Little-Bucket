@@ -46,9 +46,9 @@ const LogIn = () => {
     <div>
       <Link className='mx-3 link-white-no-decor' to={'/'}>Home</Link>
       <div className="text-center w-50 mx-auto p-3 mt-4">
-        <h2 className="text-dark">Log In</h2>
+        <h2 className="text-dark font-weight-bold">Log In</h2>
         <div className="w-75 mx-auto">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="font-weight-bold">
             <div className="form-group mt-3 ">
               <label htmlFor="email" className="text-dark">Email:</label>
               <input
