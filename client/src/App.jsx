@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="text-center w-75 mx-auto p-3 font background-image">
       {/* Logo For All Pages */}
-      <img src={LogoTwo} alt="Little Buckets Logo" className="mt-5 mb-3 w-25 " />
+      <img src={LogoTwo} alt="Little Buckets Logo" className="mt-5 mb-3" style={{width: "400px"}} />
       <Routes>
         {/* Register and Log-In Routes */}
         <Route index element={<Home />} />

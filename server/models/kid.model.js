@@ -10,9 +10,9 @@ const KidSchema = new mongoose.Schema({
     kidBirthDay: {
         type: Date
     },
-    // kidImage: {
-    //     type: String
-    // },
+    kidImage: {
+        type: String
+    },
     userId: {
         type: String
     }

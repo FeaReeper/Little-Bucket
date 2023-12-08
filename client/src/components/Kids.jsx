@@ -10,7 +10,7 @@ const Kids = () => {
     kidFirstName: "",
     gender: "",
     kidBirthDay: "",
-    // kidImage: null,
+    kidImage: "",
     userId: currentUser._id,
   });
   console.log(kid)
@@ -22,13 +22,22 @@ const Kids = () => {
     });
   };
 
+  const handlePhoto = (e) => {
+    setKid({...kid, kidImage: e.target.files[0]})
+    console.log(kid.kidImage)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    // const formData = new FormData()
-    // formData.append('kidImage', kid.kidImage)
+    const formData = new FormData()
+    formData.append('kidImage', kid.kidImage)
+    formData.append('kidFirstName', kid.kidFirstName)
+    formData.append('kidBirthDay', kid.kidBirthDay)
+    formData.append('gender', kid.gender)
+    formData.append('userId', kid.userId)
 
     axios
-    .post('http://localhost:8000/api/newKid', kid)
+    .post('http://localhost:8000/api/newKid', formData)
     .then((res) => {
       console.log(res)
       navigate('/dashboard')
@@ -76,10 +85,10 @@ const Kids = () => {
               onChange={handleChange}
             />
           </div>
-          {/* <div className="form-group mt-4 d-flex justify-content-around gap-5 ">
+          <div className="form-group mt-4 d-flex justify-content-around gap-5 ">
             <label style={{marginLeft: '30px'}} htmlFor="kidImage">Add Photo:</label>
-            <input type="file" className="w-25" name="kidImage" id='kidImage' onChange={handleChange}/>
-          </div> */}
+            <input type="file" accept='.png, .jpg, .jpeg' className="w-25" name="kidImage" id='kidImage' onChange={handlePhoto}/>
+          </div>
           <button className="btn btn-primary mt-4">Add</button>
         </form>
       </div>
