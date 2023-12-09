@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { userContext } from "../context/UserContext";
 import axios from "axios";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 
 const Kids = () => {
   const { currentUser } = useContext(userContext);
@@ -49,8 +49,13 @@ const Kids = () => {
 
   return (
     <div>
+      <div className="d-flex justify-content-center ">
+        <Link className="d-flex align-items-center link-white-no-decor" to={"/dashboard"}>
+        Dashboard
+        </Link>
+      </div>
       <h1 style={{ color: "#1499ef" }}>Add a Little One</h1>
-      <div>
+      <div className="border p-3 bg-light text-black w-50 mx-auto">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="kidFirstName">Name:</label>
@@ -85,11 +90,11 @@ const Kids = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group mt-4 d-flex justify-content-around gap-5 ">
+          <div className="form-group mt-4 d-flex justify-content-around">
             <label style={{marginLeft: '30px'}} htmlFor="kidImage">Add Photo:</label>
             <input type="file" accept='.png, .jpg, .jpeg' className="w-25" name="kidImage" id='kidImage' onChange={handlePhoto}/>
           </div>
-          <button className="btn btn-primary mt-4">Add</button>
+          <button className="btn btn-primary mt-5">Add Little One</button>
         </form>
       </div>
     </div>

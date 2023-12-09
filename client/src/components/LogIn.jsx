@@ -45,7 +45,7 @@ const LogIn = () => {
   return (
     <div>
       <Link className='mx-3 link-white-no-decor' to={'/'}>Home</Link>
-      <div className="text-center w-50 mx-auto p-3 mt-4">
+      <div className="text-center w-50 mx-auto p-3 mt-4 border bg-light">
         <h2 className="text-dark font-weight-bold">Log In</h2>
         <div className="w-75 mx-auto">
           <form onSubmit={handleSubmit} className="font-weight-bold">

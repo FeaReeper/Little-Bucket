@@ -57,8 +57,8 @@ const BucketForm = (props) => {
   return (
     <div>
       <h1 className="sub-title">Add to Bucket List</h1>
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div className="border p-3 bg-light mt-5">
+        <form onSubmit={handleSubmit} className="text-black">
           <div className="form-group">
             <label htmlFor="title">Title:</label>
             <input

@@ -24,6 +24,15 @@ const [subtext, setSubtext] = useState([
 // Displays Link to Register as well as Imports Log-In Component
   return (
     <div>
+      <div className='d-flex justify-content-center '>
+        <p className='text-black w-75 font-weight-bold'>Welcome to Little Buckets! We believe childhood is a precious time filled with wonder and discovery. 
+        They grow up fast so don't miss the opportunity to shape their lives through shared experiences and lifelong learning.
+        Little Buckets is more than just a to-do list. It's a platform for creating meaningful connections, fostering a love for 
+        adventure, and building lasting memories that will bond your family for years to come.</p>
+      </div>
+      <div>
+        <p className='text-black display-6 '>Start your journey today and make every moment count</p>
+      </div>
       <Link className='mx-5 link-white-no-decor' to={'/register'}>Register</Link>
       <Link className='mx-5 link-white-no-decor' to={'/logIn'}>Log In</Link>
       <div>
@@ -54,7 +63,7 @@ const [subtext, setSubtext] = useState([
             <Link className='mx-3 link-white-no-decor' to={'/register'}>Click to Register</Link>
           </div>
         </div> */}
-        <p className='mt-5 text-dark'>Inspired by Nyalee Emilia</p>
+        <p className='mt-5 text-dark font-weight-bold'>Inspired by Nyalee Emilia</p>
       </div>
     </div>
   )

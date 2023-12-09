@@ -47,27 +47,30 @@ const Dashboard = () => {
       <div className='card mt-2'>
         <h3 style={{color: '#1499ef'}} className='card-header'>Proud Parent: <span className='font-weight-bold display-6'>{currentUser.firstName} {currentUser.lastName}</span></h3>
         <div className='card-body d-flex justify-content-between '>
-          <div className='card-body w-25'>
-            <p className='card-body'>My Little Ones</p>
-            {
-              kids.map((kid) => {
-                const age = getAge(kid.kidBirthDay)
-                if (kid.userId == currentUser._id)
-                  return (
-                    <div key={kid._id}>
-                      <p className='sub-title'>{kid.kidFirstName}</p>
-                      <img src={`http://localhost:8000/images/${kid.kidImage}`} alt="" className='w-25 rounded-circle'/>
-                      <p className='mt-3 sub-title'>Age: {age}</p>
-                    </div>
-                  )
-              })
-            }
+          <div className='card-body w-50'>
+            <p className='card-body h4'>My Little Ones</p>
+            <div className=''>
+              {
+                kids.map((kid) => {
+                  const age = getAge(kid.kidBirthDay)
+                  if (kid.userId == currentUser._id)
+                    return (
+                      <div key={kid._id}>
+                        <p className='sub-title'>{kid.kidFirstName}</p>
+                        <img src={`http://localhost:8000/images/${kid.kidImage}`} alt="" className='w-25 rounded-circle'/>
+                        <p className='mt-3 sub-title'>Age: {age}</p>
+                      </div>
+                    )
+                })
+              }
+            </div>
           <div className='mt-3'>
             <Link className='card-body link-white-no-decor' to={'/myLittleOnes'}>Add A Little One</Link>
           </div>
           </div>
-          <div className='w-50'>
-            <p className='mt-3'>Bucket List</p>
+          <div className='mt-5 w-50 bucket-position'>
+            <Link to={'/dashboard/buckets'} className='mt-3 bucket-text-position link-white-no-decor'>Bucket List</Link>
+            {/* <p className='mt-3 bucket-text-position'>Bucket List</p> */}
             <Link className='card-body link-white-no-decor' to={'/dashboard/buckets'}><img src={Bucket} alt=""  className='w-25 mx-auto mt-3'/></Link>
           </div>
         </div>

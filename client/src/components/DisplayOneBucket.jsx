@@ -38,16 +38,21 @@ const DisplayOneBucket = () => {
         <Link to={'/dashboard/buckets'} className='link-white-no-decor'>Back to List</Link>
         <Nav/>
       </div>
-      <div className='mt-5'>
-        <h3>Title: {bucket.title}</h3>
-        <p>Age to Show: {bucket.age}</p>
-        <p>Description: {bucket.description}</p>
-        <p>Notes: {bucket.notes}</p>
-        <p>Tag: {bucket.tag}</p>
+      <div className='border bg-light p-3 w-50 mx-auto'>
+        <div className='mt-5 text-black font-weight-bold h4'>
+          <h3 className='display-6'>Title: <span>{bucket.title}</span></h3>
+          <p>Age to Show: <span>{bucket.age}</span></p>
+          <p>Description: <span>{bucket.description}</span></p>
+          <p>Notes: <span>{bucket.notes}</span></p>
+          <p>Tag: <span>{bucket.tag}</span></p>
+        </div>
+        <div>
+          <Link to={`/bucket/update/${id}`} className="btn btn-primary m-3">Edit</Link>
+          <button className="btn btn-danger m-3" onClick={handleDelete}>Delete</button>
+        </div>
       </div>
-      <div>
-        <Link to={`/bucket/update/${id}`} className="btn btn-primary m-3">Edit</Link>
-        <button className="btn btn-danger m-3" onClick={handleDelete}>Delete</button>
+      <div style={{height: "90px"}}>
+
       </div>
     </div>
   )
