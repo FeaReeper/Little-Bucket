@@ -69,17 +69,17 @@ const DisplayBucketList = () => {
         </div>
         <div className="col m-5">
           <div>
-            <h1 className="sub-title">All Bucket Items</h1>
+            <h1 className="sub-title">All Bucket Plans</h1>
           </div>
-          <div className="mt-4">
-            <button className="btn border h-50 m-auto text-black" onClick={sortBucketsByAge}>Sort by Age</button>
+          <div className="mt-4 d-flex">
+            <button className="btn btn-primary h-50 m-auto text-white" onClick={sortBucketsByAge}>Sort by Age</button>
             <form className='d-flex ali text-black' onSubmit={handleSearch}>
               <label htmlFor="search" className="m-auto">Search by Tag: </label>
               <input className="m-3" type="search" id="search" name="search" onChange={handleChange}/>
-              <button className="btn border h-50 m-auto text-black">Search</button>
+              <button className="btn btn-primary h-50 m-auto text-white mx-2">Search</button>
             </form>
           </div>
-          <div className="overflow-auto border bg-light" style={{height: "55%"}}>
+          <div className="overflow-auto border bg-light" style={{height: "60%"}}>
           {
           buckets.map((bucket) => {
             if (bucket.userId == currentUser._id)
