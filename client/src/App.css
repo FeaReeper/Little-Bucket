@@ -25,14 +25,3 @@
 .font-weight-bold {
     font-weight: bolder;
 }
-
-.bucket-position {
-    position: relative;
-}
-
-.bucket-text-position {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}

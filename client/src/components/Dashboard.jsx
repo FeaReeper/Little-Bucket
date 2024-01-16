@@ -68,10 +68,8 @@ const Dashboard = () => {
             <Link className='card-body link-white-no-decor' to={'/myLittleOnes'}>Add A Little One</Link>
           </div>
           </div>
-          <div className='mt-5 w-50 bucket-position'>
-            <Link to={'/dashboard/buckets'} className='mt-3 bucket-text-position link-white-no-decor'>Bucket List</Link>
-            {/* <p className='mt-3 bucket-text-position'>Bucket List</p> */}
-            <Link className='card-body link-white-no-decor' to={'/dashboard/buckets'}><img src={Bucket} alt=""  className='w-25 mx-auto mt-3'/></Link>
+          <div className='m-5 w-50'>
+            <Link to={'/dashboard/buckets'} className='mt-3'><img src={Bucket} alt="" className='w-25' /></Link>
           </div>
         </div>
       </div>
