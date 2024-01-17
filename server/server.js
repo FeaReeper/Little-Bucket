@@ -10,7 +10,7 @@ require("./config/mongoose.config");
     
 app.use(express.json(), express.urlencoded({ extended: true }));
 app.use(cookieParser())
-app.use(cors({credentials:true, origin:'http://localhost:5174'}))
+app.use(cors({credentials:true, origin: true}))
 app.use(express.static('public'))
 
 const AllUserRoutes = require("./routes/user.routes");
