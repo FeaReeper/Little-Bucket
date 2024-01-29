@@ -28,7 +28,7 @@ const Register = () => {
     e.preventDefault();
     
     axios
-      .post("http://localhost:8000/api/newUser", user, {withCredentials: true})
+      .post("https://little-bucket-api.vercel.app/api/newUser", user, {withCredentials: true})
       .then((res) => {
         // console.log(res.data);
         localStorage.setItem('currentUser', JSON.stringify(res.data))

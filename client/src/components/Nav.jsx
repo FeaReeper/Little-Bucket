@@ -8,7 +8,7 @@ const Nav = () => {
 
   const logoutUser = () => {
     axios
-      .post('http://localhost:8000/api/logout', {}, {withCredentials: true})
+      .post('https://little-bucket-api.vercel.app/api/logout', {}, {withCredentials: true})
       .then((res) => {
         navigate("/")
       })

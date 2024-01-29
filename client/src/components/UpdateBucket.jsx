@@ -19,7 +19,7 @@ const UpdateBucket = () => {
 
   useEffect(() => {
     axios
-    .get(`http://localhost:8000/api/oneBucket/${id}`)
+    .get(`https://little-bucket-api.vercel.app/api/oneBucket/${id}`)
     .then((res) => {
       console.log(res.data)
       setBucket(res.data)
@@ -40,7 +40,7 @@ const handleSubmit = (e) => {
   e.preventDefault();
 
   axios
-    .patch(`http://localhost:8000/api/updateBucket/${id}`, bucket)
+    .patch(`https://little-bucket-api.vercel.app/api/updateBucket/${id}`, bucket)
     .then((res) => {
       console.log(res.data);
       navigate(`/bucket/${id}`);

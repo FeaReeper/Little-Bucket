@@ -32,7 +32,7 @@ const BucketForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post('http://localhost:8000/api/newBucket', bucket)
+      .post('https://little-bucket-api.vercel.app/api/newBucket', bucket)
       .then((res) => {
         console.log(res)
         setLoaded(false)

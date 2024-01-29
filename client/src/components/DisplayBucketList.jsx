@@ -36,7 +36,7 @@ const DisplayBucketList = () => {
     }
     else {
       axios
-      .get("http://localhost:8000/api/allBuckets")
+      .get("https://little-bucket-api.vercel.app/api/allBuckets")
       .then((res) => {
         console.log(res.data);
         setBuckets(res.data);

@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/allKids")
+      .get("https://little-bucket-api.vercel.app/api/allKids")
       .then((res) => {
         console.log(res.data)
         setKids(res.data)

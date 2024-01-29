@@ -37,7 +37,7 @@ const Kids = () => {
     formData.append('userId', kid.userId)
 
     axios
-    .post('http://localhost:8000/api/newKid', formData)
+    .post('https://little-bucket-api.vercel.app/api/newKid', formData)
     .then((res) => {
       console.log(res)
       navigate('/dashboard')

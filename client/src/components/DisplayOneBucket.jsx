@@ -10,7 +10,7 @@ const DisplayOneBucket = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/oneBucket/${id}`)
+      .get(`https://little-bucket-api.vercel.app/api/oneBucket/${id}`)
       .then((res) => {
         console.log(res.data)
         setBucket(res.data)
@@ -22,7 +22,7 @@ const DisplayOneBucket = () => {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:8000/api/deleteBucket/${id}`)
+      .delete(`https://little-bucket-api.vercel.app/api/deleteBucket/${id}`)
       .then((res) => {
         console.log(res.data);
       })

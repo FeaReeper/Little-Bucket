@@ -23,7 +23,7 @@ const LogIn = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8000/api/loginUser", user, {
+      .post("https://little-bucket-api.vercel.app/api/loginUser", user, {
         withCredentials: true,
       })
       .then((res) => {
