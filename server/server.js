@@ -10,7 +10,21 @@ require("./config/mongoose.config");
     
 app.use(express.json(), express.urlencoded({ extended: true }));
 app.use(cookieParser())
-app.use(cors({credentials:true, methods: ["POST", "GET"], origin: ["https://little-bucket-frontend.vercel.app"]}))
+app.use(cors(
+    {
+        credentials:true, 
+        methods: ["POST", "GET"], 
+        origin: ["https://little-bucket-frontend.vercel.app"]
+    }
+))
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://little-bucket-frontend.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    next();
+})
+
 app.use(express.static('public'))
 
 const AllUserRoutes = require("./routes/user.routes");
