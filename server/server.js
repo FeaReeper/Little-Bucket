@@ -10,7 +10,7 @@ require("./config/mongoose.config");
     
 app.use(express.json(), express.urlencoded({ extended: true }));
 app.use(cookieParser())
-app.use(cors({credentials:true, methods: ["POST", "GET"], origin: "https://little-bucket-frontend.vercel.app"}))
+app.use(cors({credentials:true, methods: ["POST", "GET"], origin: ["https://little-bucket-frontend.vercel.app"]}))
 app.use(express.static('public'))
 
 const AllUserRoutes = require("./routes/user.routes");
