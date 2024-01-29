@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://127.0.0.1:27017/littleBuckets', {
+mongoose.connect('mongodb+srv://FeaReeper:Nyalee1023*@cluster0.f9cipfg.mongodb.net/Little-Bucket?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
