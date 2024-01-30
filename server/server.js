@@ -20,6 +20,10 @@ app.use(cors(
 
 app.use(express.static('public'))
 
+app.get("/", (req, res) => {
+    res.json("Hello")
+})
+
 const AllUserRoutes = require("./routes/user.routes");
 AllUserRoutes(app);
 
