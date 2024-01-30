@@ -14,7 +14,7 @@ app.use(cors(
     {
         credentials: true, 
         methods: ["POST", "GET"],
-        origin: ["https://little-bucket-frontend.vercel.app"]
+        origin: ["https://little-bucket.vercel.app"]
     }
 ))
 
