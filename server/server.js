@@ -13,7 +13,6 @@ app.use(cookieParser())
 app.use(cors(
     {
         credentials:true, 
-        methods: ["POST", "GET"], 
         origin: "*"
     }
 ))
