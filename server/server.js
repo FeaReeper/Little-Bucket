@@ -12,8 +12,9 @@ app.use(express.json(), express.urlencoded({ extended: true }));
 app.use(cookieParser())
 app.use(cors(
     {
-        credentials:true, 
-        origin: "*"
+        credentials: true, 
+        methods: ["POST", "GET"],
+        origin: ["https://little-bucket-frontend.vercel.app"]
     }
 ))
 
