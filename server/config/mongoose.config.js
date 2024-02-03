@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+dotenv.config()
+const ATLAS_KEY = process.env.ATLAS_KEY
 
-mongoose.connect('mongodb+srv://FeaReeper:Nyalee1023*@cluster0.f9cipfg.mongodb.net/Little-Bucket?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://FeaReeper:${ATLAS_KEY}@cluster0.f9cipfg.mongodb.net/Little-Bucket?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
